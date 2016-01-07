@@ -74,7 +74,7 @@ void c2h(uint8_t c, char *r)
 ZEND_FUNCTION(murmurhash3_128)
 {
     char *key;
-    int key_len;
+    size_t key_len;
     long seed;
     char output[MURMURHASH3_128_OUTPUT_LENGTH + 1];
     char result[MURMURHASH3_128_OUTPUT_LENGTH * 2 + 1];
@@ -95,13 +95,13 @@ ZEND_FUNCTION(murmurhash3_128)
     result[MURMURHASH3_128_OUTPUT_LENGTH * 2] = 0;
 
     // Return the result
-    RETURN_STRING(result, 1);
+    RETURN_STRING(result);
 }
 
 ZEND_FUNCTION(murmurhash3_32)
 {
     char *key;
-    int key_len;
+    size_t key_len;
     long seed;
     char output[MURMURHASH3_32_OUTPUT_LENGTH + 1];
     char result[MURMURHASH3_32_OUTPUT_LENGTH * 2 + 1];
@@ -122,5 +122,5 @@ ZEND_FUNCTION(murmurhash3_32)
     result[MURMURHASH3_32_OUTPUT_LENGTH * 2] = 0;
 
     // Return the result
-    RETURN_STRING(result, 1);
+    RETURN_STRING(result);
 }
